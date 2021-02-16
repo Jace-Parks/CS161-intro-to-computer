@@ -1,0 +1,130 @@
+#include <iostream>
+#include <stdlib.h>
+
+using namespace std;
+
+int main();
+
+void suck(){
+
+    int path;
+
+    for(;;){
+        cout << "press 1 to exit | press 2 to retry: " << endl;
+        cin >> path;
+
+        if(path == 1){
+            exit(0);
+        }
+        else if(path == 2){
+            main();
+        }
+            else
+              exit(0);
+    }
+}
+
+int main(){
+
+int choice;
+int money;
+int mode;
+int path;
+int dealermon;
+int player1mon;
+int player2mon;
+int player3mon;
+int player4mon;
+int p1total;
+int p2total;
+int p3total;
+int p4total;
+int dealertotal;
+int i;
+int card;
+int dcard;
+
+srand(time(NULL));
+                           //prompts user for players and money
+cout << "How many players would you like?: ";
+cin >> mode;
+cout << "How much money do you want to start with?: ";
+cin >> money;
+
+//1 player vs dealer
+if(mode == 1){
+
+    player1mon = money;
+    dealermon = money;
+
+    card = (rand()%11) + 1; 
+    dcard = (rand()%11) + 1;
+    card = p1total;
+    
+    cout << "your card was: " << card << endl;
+    cout << "Here is your total: " << p1total << endl;
+    cout << "Here is the deal's total: " << dealertotal << endl;
+    cout << "would you like to hit?" << endl;
+    cout << "press 1 to hit | press 2 to stay: ";
+    cin >> choice;
+        if(choice == 1){
+            while(p1total <= 21){
+                
+                card = (rand()%11) + 1;
+                p1total = p1total + card;
+                
+                cout << "Your total is: " << p1total << endl;
+                cout << "Would you like to hit again?" << endl;
+                cout << "press 1 to hit | press 2 to stay: ";
+                cin >> choice;
+                    
+                if(choice == 2){
+                    break;
+                }
+                else if(choice == 1){
+                    cout << "you chose to hit" << endl;
+                }
+                else{
+                    suck();
+                }
+               
+            }
+        }
+        else if(choice == 2){
+            cout << "you chose to stay" << endl;
+        }
+        else{
+            suck();
+        }
+    else{
+        cout << "You do not have enough money to play" << endl;
+
+}}
+//2 players vs dealer
+else if(mode == 2){
+
+    cout << "mode 2" << endl;
+
+}
+//3 players vs dealer
+else if(mode == 3){
+
+    cout << "mode 3" << endl;
+
+}
+//4 players vs dealer
+else if(mode == 4){
+
+    cout << "mode 4" << endl;
+
+
+}
+
+else if((mode > 4) || (mode < 1)){
+
+    cout << "You have inputed the wrong mode" << endl;
+    suck();
+}
+
+return 0;
+}

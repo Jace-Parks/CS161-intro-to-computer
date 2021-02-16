@@ -1,0 +1,56 @@
+#include <iostream>
+#include <stdlib.h>
+
+using namespace std;
+
+int main();
+
+void invalid_input(){
+
+    int choice = 0;
+
+    for(;;){
+        
+        cout << "You have entered an invalid input" << endl;
+        cout << "Press 1 to exit | Press 2 to restart the program: ";
+        cin >> choice;
+
+        if(choice == 1)
+            exit(0);
+        else if(choice == 2)
+            main();
+        else 
+            invalid_input();
+        
+
+}
+
+
+}
+
+int day_food(int foodmoney){
+
+return foodmoney;
+}
+
+
+int main(){
+
+    int days;
+
+    cout << "How many days were you gone for?: ";
+    cin >> days;
+
+    if(days < 0)
+        invalid_input();
+    else if (days > 31)
+        invalid_input();
+    else
+
+    cout << "this works" << endl;
+
+
+        
+
+    return 0;
+}

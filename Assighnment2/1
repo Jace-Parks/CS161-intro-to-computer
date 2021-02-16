@@ -1,0 +1,73 @@
+#include <iostream>
+#include <cmath>
+#include <climits>
+#include <cstdlib>
+
+using namespace std;
+
+int main(){
+    
+    int cho;
+    int rand;
+
+    cout << "Welcome to choose your own adventure!" << endl;
+    cout << "------------------------------------------------" << endl;
+    cout << "Our adventure begins with our hero (you) leaving their home town" << endl;
+    cout << "Your quest has been assighned to you by the leader of the town" << endl;
+    cout << "The leader of the town pulls you into his house" << endl;
+    cout << "He tells you that a dragon has been killing the town's livestock and burning its crops for several weeks" << endl;
+    cout << "If the dragon is not slain or stopped the town will starve" << endl;
+    cout << "The leader of the town told you start by looking at the area where the town's fields meet the forest" << endl;
+    cout << "This is where the dragon is last seen after burning and pilaging the townn's goods" << endl;
+    cout << "When you arrive at this area there are three ways to go: To trudge through the dark forest" << endl;
+    cout << "To go around the forest towards the snowy moutain" << endl;
+    cout << "Or to go around the other side of the forest toward the swamp" << endl;
+    cout << "To go left to the swamp press 1 | To go straight through the dark forest press 2:" << endl;
+    cin >> cho;
+
+    if(cho = 1){
+    cout << "You chose to go to the left towards the swamp" << endl;
+    cout << "------------------------------------------------" << endl;
+
+    srand(time(NULL));
+    
+     rand() % 3  = rand;
+     
+     rand  = rand + cho;    
+
+        if(rand = 1) {
+            
+            cout << "You start down the swampy bridge and after taking a few steps you are grabbed by a giant slime creature" << endl;
+            cout << "You are pulled into the swamp and your vision is darkened" << endl;
+            cout << "" << endl;
+            }
+
+        if(rand = 2) {
+        
+            cout << "You choose to go down the bridge in the swamp" << endl;
+
+            }
+                
+        if(cho = 3) {
+
+            }
+    }
+     
+        
+    if(cho = 2){
+        
+        cout << "path two test" << endl;
+    }
+    
+    return 0;
+}
+
+
+
+
+
+
+
+     
+     
+ 

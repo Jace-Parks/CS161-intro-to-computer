@@ -1,0 +1,455 @@
+#include <iostream>
+#include <stdlib.h>
+
+using namespace std;
+
+int main();
+
+void invalid_input(){
+
+    int choice = 0;
+
+    for(;;){
+        
+        cout << "You have entered an invalid input" << endl;
+        cout << "Press 1 to exit | Press 2 to restart the program: ";
+        cin >> choice;
+
+        if(choice == 1)
+            exit(0);
+        else if(choice == 2)
+            main();
+        else 
+            invalid_input();
+        
+
+    }
+}
+
+float day_dinner(){
+
+    float breakfast;
+    float lunch;
+    float foodmoney;
+
+    cout << "How much did you spend on breakfeast?: ";
+    cin >> breakfast;
+    cout << "How much did you spend on lunch?: ";
+    cin >> lunch;
+
+    foodmoney = lunch + breakfast;
+    
+
+return foodmoney;
+}
+
+float day_breakfast(){
+
+    float dinner;
+    float lunch;
+    float foodmoney;
+
+    cout << "How much did you spend on lunch?: ";
+    cin >> lunch;
+    cout << "How much did you spend on dinner?: ";
+    cin >> dinner;
+
+    foodmoney = dinner + lunch;
+
+return foodmoney;
+}
+
+float day_food(){
+
+    float foodmoney;
+    float breakfast;
+    float lunch;
+    float dinner;
+
+    cout << "How much did you spend on breakfeast?: ";
+    cin >> breakfast;
+    cout << "How much did you spend on lunch?: ";
+    cin >> lunch;
+    cout << "How much did you spend on dinner?: ";
+    cin >> dinner;
+
+    if((breakfast >= 0) & (lunch >= 0) & (dinner >= 0)){
+
+    foodmoney = breakfast + lunch + dinner;
+
+    cout << endl;
+
+    return foodmoney;
+    }else
+         invalid_input();
+}
+
+float car(int choice){
+
+    float carmoney = 0;
+    float taximoney = 0;
+    float rentmoney = 0;
+    float gasmoney = 0;
+    float renttotal = 0;
+    float day = 0;
+    int tday = 1;
+    int miles;
+    float reinburst;
+
+    if(choice == 5){ 
+
+        cout << "How many days did you use a taxi?: ";
+        cin >> day; 
+
+        do{
+
+            cout << "day " << tday << endl;
+            cout << "How much did you spend on taxis?: ";
+            cin >> taximoney;
+
+            carmoney = carmoney + taximoney;
+
+            --day;
+            tday++;
+
+        }while(day > 0); 
+
+    }
+    else if((choice > 1) || (choice < 5 )){
+
+       // cout << "How many days did you rent the car?: ";
+       // cin >> day;
+        cout << "How much did you spend on the car?: ";
+        cin >> rentmoney;
+        cout << "How much did you spend on gas?: ";
+        cin >> gasmoney;
+       // cout << "How many miles did you travel?: ";
+       // cin >> miles;
+
+      /*cout << "Which car did you rent?" << endl;
+        cout << "press the corresponding number for the car" << endl;
+        cout << "1. Sedan" << endl;
+        cout << "2. SUV" << endl;
+        cout << "3. Van" << endl;
+        cout << "4. Convertible" << endl;
+        cin >> choice;
+    
+            if(choice == 1){
+            
+                  reinburst = 20 * day;
+                  reinburst = reinburst + (0.24 * miles);
+            }
+            else if(choice == 2){
+                
+                  reinburst = 25 * day;
+                  reinburst = reinburst + (0.27 * miles); 
+
+            } 
+            else if(choice == 3){
+
+                  reinburst = 30 * day;
+                  reinburst = reinburst + (0.32 * miles);
+                
+            }
+            else if(choice == 4){
+
+                  reinburst = 50 * day; 
+                  reinburst = reinburst + (0.45 * miles);
+            }
+            else 
+                invalid_input();
+
+            return reinburst; */
+
+        carmoney = gasmoney + rentmoney;
+
+    }
+    else
+        invalid_input();
+
+return carmoney;
+}
+
+float parking(){
+
+    float parktotal;
+    float park;
+    int days;
+    int fdays = 1;
+
+    cout << "How many days did you park?: ";
+    cin >> days;
+
+    do{ 
+
+        cout << fdays << " day" << endl;
+        cout << "how much did you spend on parking?: ";
+        cin >> park;
+
+        parktotal = park + parktotal;
+
+        days--;
+        fdays++;
+    }while(days > 0);
+
+return parktotal;
+}
+
+float hotel(){
+
+    int days;
+    float hoteltotal;
+    float hotel;
+    int fdays = 1;
+
+    do{
+ 
+        cout << fdays << " day" << endl;
+        cout << "How much did you spend at the hotel?: ";
+        cin >> hotel;
+
+        hoteltotal = hoteltotal + hotel;
+
+    }while(days > 0);
+
+return hoteltotal;
+}
+
+
+int main(){
+
+    int days;
+    int cday;
+    int choice;
+    float food = 0;
+    int day = 1;
+    float dinner = 0;
+    int fdays = 0;
+    int arrival = 0;
+    int depart = 0;
+    float breakfast = 0;
+    float airfare = 0;
+    float fees = 0;
+    float carmoney = 0;
+    float parkingmoney = 0;
+    float total = 0;
+    float resub;
+    float reinburst;
+    float creinburst = 0;
+    float miles = 0;
+    float parkingcost = 0;
+    float taxi = 0;
+    float hotelnight = 0;
+    float hotelprice = 0;
+    float taxiday = 0;
+    float foodreinburst = 0;
+    float breakfastcount = 0;
+    float lunchcount = 0;
+    float dinnercount = 0;
+
+    cout << "How many days were you gone for?: ";
+    cin >> days;
+
+
+    if(days < 1)              //A perosn has to go atlest one day so it's greater than zero
+        invalid_input();
+    else if (days > 31)       //most trips are between 2 weeks and 3 days
+        invalid_input();     // so I have limited the days that the person can travel
+    else
+
+    fdays = days;
+
+    cday = days;   
+ 
+    cout << "Please input your time in military time" << endl;
+    cout << "Where 600 hours is 6am and 1800 hours is 6pm" << endl;
+    cout << "What time did you leave?: ";
+    cin >> depart;
+    cout << "What time did you get back?: ";
+    cin >> arrival;  
+
+    if((depart < 0) || (arrival < 0))
+        invalid_input();
+    else if((depart > 2400) || (arrival > 2400))
+        invalid_input();
+    else if(depart > 1801){
+        cout << "day 1" << endl;
+        cout << "You have skipped all meals for the first day" << endl;
+        fdays--;   //skips all meals for first day and goes to day 2 
+        day++; 
+    }
+    else if(depart > 1201){
+        cout << "day 1" << endl;
+        cout << "How much did you spend on dinner?: ";
+        cin >> dinner;              //function that skips breakfast and lunch adds dinner total 
+        food = dinner + food;
+        fdays--;
+        day++;
+        dinnercount++;
+    }
+    else if(depart > 701){
+         cout << "day 1" << endl;
+        food = day_breakfast() + food;
+        fdays--;
+        day++;                         //skips breakfast and adds to dinner and lunch
+        lunchcount++;
+        dinnercount++;
+    }
+    else if(depart > 0){
+                              //does nothing for people who get to airport after midnight
+    }                         //acts like a normal day
+    else
+        invalid_input(); 
+
+    do {    
+
+        cout << "day " << day <<endl;
+        cout << "How much food did you buy?" << endl;
+        food  = food + day_food();
+        cout << food << endl;
+
+        fdays--;
+        day++;
+        dinnercount++;
+        lunchcount++;
+        breakfastcount++;
+       
+
+    } while(fdays > 1);
+
+    cout << "day " << day;
+
+    if(arrival < 799){
+        fdays--;
+        day++;                 //skips all meals
+    }
+    else if(arrival < 1299 ){
+        cout << "day " << fdays;
+        cout << "How much did you spend on breakfeast?: ";
+        cin  >> breakfast;
+
+        food = breakfast + food;
+
+        fdays--;
+        day++;         
+        breakfastcount++;                      //skip lunch and dinner
+    }
+    else if(arrival < 1899){
+        cout << "day " << fdays;
+        food = day_dinner() + food;
+        fdays--;
+        day++;
+        lunchcount++;
+        breakfast++;
+    }                                 //include  lunch and breakfeast skips dinner
+    else if(arrival > 1900){
+        cout << "day " << fdays;
+        food  = food + day_food(); //includes all meals
+        fdays--;
+        day++;
+    }
+    else
+        invalid_input();
+
+
+    cout << "How much did you spend on airfare?: ";
+    cin >> airfare;
+
+    cout << "How much was your conference fees?: ";
+    cin >> fees;  
+
+    cout << "What type of car did you take?" << endl;
+    cout << "Press the button for the corresponding cars" << endl;
+    cout << "1. Sedan" << endl;
+    cout << "2. SUV" << endl;
+    cout << "3. Van" << endl;
+    cout << "4. Convertible" << endl;
+    cout << "5. Taxi" << endl;
+    cout << ": ";
+    cin >> choice; 
+    cout << "How many miles did you travel?: ";
+    cin >> miles;
+
+    if((choice < 5) && (choice >0 )){
+            
+                  creinburst = 20 * cday;
+                  creinburst = creinburst + (0.24 * miles);
+            }
+            else if(choice == 2){
+                
+                  creinburst = 25 * cday;
+                  creinburst = creinburst + (0.27 * miles); 
+
+            } 
+            else if(choice == 3){
+
+                  creinburst = 30 * cday;
+                  creinburst = creinburst + (0.32 * miles);
+                
+            }
+            else if(choice == 4){
+
+                  creinburst = 50 * cday; 
+                  creinburst = creinburst + (0.45 * miles);
+            }
+            else if(choice == 5) {
+
+            }
+            else
+                invalid_input();
+
+    carmoney = car(choice); 
+
+    parkingmoney = parking();
+
+    cout << "How many days did you park? (for reinburstment)" << endl;
+    cout << "If you took a taxi enter 0: ";
+    cin >> parkingcost; 
+
+    parkingcost = parkingcost * 6;
+
+    cout << "If you took a taxi how many days? (for reinburstment)" << endl;
+    cout << "If you took a car press 0: ";
+    cin >> taxi;
+
+    taxiday = taxi;
+
+    taxi = taxi * 10;
+
+    cout << "How many nights did you spend on the hotel?: ";
+    cin >> hotelnight;
+    cout << "How much did you spend per night?: ";
+    cin >> hotelprice;
+
+    hotelprice = hotelprice * hotelnight;
+
+    hotelnight = 90 * hotelnight;
+        
+    total = parkingmoney + carmoney + food + fees + airfare + hotelprice;
+
+    parkingcost = parkingmoney - parkingcost;
+
+    if((choice < 5) && (choice > 0)){
+         creinburst = creinburst - carmoney;
+    }
+    else if(choice == 5)
+        taxi = taxi - carmoney;
+    else
+        invalid_input();
+
+    hotelnight = hotelprice - hotelnight;
+
+    foodreinburst = food - ((dinnercount * 16) + (lunchcount * 12) + (breakfast * 9));
+
+    reinburst = airfare + foodreinburst + fees + creinburst + parkingcost + taxi + hotelnight;
+  
+    if(reinburst < 0)
+        reinburst = 0;
+    else
+
+    cout << "Your total is " << total << endl; 
+
+    cout << "Your reinburstment is " << reinburst << endl;
+
+  return 0;
+}

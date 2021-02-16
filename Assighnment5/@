@@ -1,0 +1,87 @@
+#include <iostream>
+#include <string.h>
+#include <stdio.h> 
+
+using namespace std;
+
+string getstring(){
+    
+    string phrase;
+
+    cout << "Enter a phrase you would like: ";
+    getline(cin, phrase);
+   
+
+return phrase;
+}
+
+string getwords(){
+
+    int word = 0;
+ 
+    cout << "How many words would you like to enter?: ";
+    cin >> word;
+
+    string* words = new string[word];
+
+    for(int i = 0;i < word;i++){
+    
+        words[i] = getstring();
+    }
+
+return *words;
+}
+
+int count_spaces_of_string(char *array){
+
+    int length = strlen(array);
+    int spaces = 0;   
+
+    for(unsigned int i = 0; i < length;i++){
+        if(array[i] == ' ')
+            spaces++;
+
+    }
+
+return spaces;
+}
+
+char convert_string_to_char_array(string phrase){
+
+    int length = phrase.length();
+
+    char char_array[length+1];
+
+    strcpy(char_array, phrase.c_str());
+
+return *char_array;
+}
+
+char convert_string_to_string_array(string phrase){
+
+    int length = phrase.length();    
+    int i = 0;
+    
+    char* phrase_array;
+    phrase = new char [length+1];
+    *phrase_array = convert_string_to_char_array(phrase);
+    char* buffer = strtok (phrase_array, " .");
+    char* string_array[count_spaces_of_string(phrase_array)];
+
+    while (buffer != NULL){
+
+        string_array[i++] = buffer;
+        buffer = strtok (NULL, " .");
+        i++;
+    }       
+
+return *string_array;
+}
+
+
+int main(){
+    
+    cout << getstring() << endl;
+    
+return 0;
+}

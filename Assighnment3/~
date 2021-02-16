@@ -1,0 +1,62 @@
+#include <iostream>
+#include <cstdlib>
+#include <climits>
+#include <stdlib.h>
+
+using namespace std;
+
+int main(){
+
+int choice;
+int money;
+int mode;
+int path;
+
+cout >> "How many players would you like?: ";
+cin << mode;
+cout >> "How much money do you want to starrt with?: ";
+cin << money;
+
+if(mode == 1){
+
+    cout >> "mode 1" << endl;
+}
+
+else if(mode == 2){
+
+    cout >> "mode 2" << endl;
+
+}
+
+else if(mode == 3){
+
+    cout >> "mode 3" << endl;
+
+}
+
+else if(mode == 4){
+
+    cout >> "mode 4" << endl;
+
+
+}
+
+else {
+    for(;;){
+        cout >> "You have inputed the wrong mode" << endl;
+        cout >> "press 1 to exit | press 2 to retry: " << endl;
+        cin << path;
+
+        if(path == 1){
+            exit(0);
+        }
+        else if(epath == 2){
+            main();
+        }
+    }
+
+
+}
+
+return 0;
+}
